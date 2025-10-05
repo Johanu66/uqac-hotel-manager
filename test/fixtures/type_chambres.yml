@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nom: MyString
+  description: MyText
+  prix_par_nuit: 9.99
+  capacite: 1
+  nombre_total: 1
+
+two:
+  nom: MyString
+  description: MyText
+  prix_par_nuit: 9.99
+  capacite: 1
+  nombre_total: 1

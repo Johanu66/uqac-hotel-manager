@@ -23,8 +23,33 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <!-- Book a new room -->
+      <%= link_to 'Book a Room', new_reservation_path %> |
+
+      <!-- View my reservations -->
+      <%= link_to 'My Reservations', reservations_path %> |
+
+      <!-- View all rooms -->
+      <%= link_to 'All Rooms', chambres_path %> |
+
+      <!-- View all room types -->
+      <%= link_to 'Room Types', type_chambres_path %> |
+
+      <!-- View all reservations (manager, and receptionist) -->
+      <% if current_user.manager? || current_user.receptionist? %>
+        <%= link_to 'All Reservations', reservations_path %> |
+      <% end %>
+      
+      <%= link_to 'Logout', destroy_user_session_path, data: { "turbo-method": :delete } %>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %> |
+      <%= link_to 'Sign Up', new_user_registration_path %>
+    <% end %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

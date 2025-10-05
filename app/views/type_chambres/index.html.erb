@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Type chambres" %>
+
+<h1>Type chambres</h1>
+
+<div id="type_chambres">
+  <% @type_chambres.each do |type_chambre| %>
+    <%= render type_chambre %>
+    <p>
+      <%= link_to "Show this type chambre", type_chambre %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New type chambre", new_type_chambre_path %>

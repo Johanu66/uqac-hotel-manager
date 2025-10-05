@@ -1,0 +1,42 @@
+<%= form_with(model: type_chambre) do |form| %>
+  <% if type_chambre.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(type_chambre.errors.count, "error") %> prohibited this type_chambre from being saved:</h2>
+
+      <ul>
+        <% type_chambre.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nom, style: "display: block" %>
+    <%= form.text_field :nom %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.textarea :description %>
+  </div>
+
+  <div>
+    <%= form.label :prix_par_nuit, style: "display: block" %>
+    <%= form.text_field :prix_par_nuit %>
+  </div>
+
+  <div>
+    <%= form.label :capacite, style: "display: block" %>
+    <%= form.number_field :capacite %>
+  </div>
+
+  <div>
+    <%= form.label :nombre_total, style: "display: block" %>
+    <%= form.number_field :nombre_total %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

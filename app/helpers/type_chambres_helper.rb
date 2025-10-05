@@ -1,0 +1,2 @@
+module TypeChambresHelper
+end

@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
+  enum :role, { client: 0, receptionist: 1, manager: 2 }
+  validates :role, presence: true, inclusion: { in: roles.keys }
+
   validates :name, presence: true, length: { maximum: 100 }
-  validates :role, presence: true, inclusion: { in: %w[admin receptionist client] }
+
+  has_many :reservations, dependent: :destroy
 end

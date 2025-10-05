@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @type_chambre %>
+
+<div>
+  <%= link_to "Edit this type chambre", edit_type_chambre_path(@type_chambre) %> |
+  <%= link_to "Back to type chambres", type_chambres_path %>
+
+  <%= button_to "Destroy this type chambre", @type_chambre, method: :delete %>
+</div>

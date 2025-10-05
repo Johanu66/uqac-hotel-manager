@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  type_chambre: one
+  chambre: one
+  date_arrivee: 2025-10-05
+  date_depart: 2025-10-05
+  statut: MyString
+  prix_total: 9.99
+  date_creation: 2025-10-05 18:36:59
+
+two:
+  user: two
+  type_chambre: two
+  chambre: two
+  date_arrivee: 2025-10-05
+  date_depart: 2025-10-05
+  statut: MyString
+  prix_total: 9.99
+  date_creation: 2025-10-05 18:36:59
