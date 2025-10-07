@@ -134,6 +134,23 @@ jobs:
           # Add the current key
           ssh-keyscan -H 15.223.68.69 >> ~/.ssh/known_hosts
 
+      - name: Install Docker on EC2 if needed
+        run: |
+          # Check if Docker is installed, install if not
+          ssh -i ~/.ssh/aws-uqac-hotel-manager-key.pem ubuntu@15.223.68.69 'which docker || {
+            echo "Installing Docker..."
+            sudo apt-get update
+            sudo apt-get install -y ca-certificates curl
+            sudo install -m 0755 -d /etc/apt/keyrings
+            sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+            sudo chmod a+r /etc/apt/keyrings/docker.asc
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+            sudo apt-get update
+            sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+            sudo usermod -aG docker ubuntu
+            echo "Docker installed successfully"
+          }'
+
       - name: Deploy with Kamal
         env:
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
