@@ -7,10 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-AdminUser.create!(name: "John Doe", email: 'manager1@example.com', role: 'manager', password: 'password', password_confirmation: 'password') if Rails.env.development?
-AdminUser.create!(name: "Jane Smith", email: 'receptionist1@example.com', role: 'receptionist', password: 'password', password_confirmation: 'password') if Rails.env.development?
-AdminUser.create!(name: "Alice Johnson", email: 'manager2@example.com', role: 'manager', password: 'password', password_confirmation: 'password') if Rails.env.development?
-AdminUser.create!(name: "Bob Brown", email: 'receptionist2@example.com', role: 'receptionist', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(name: "John Doe", email: 'manager1@example.com', role: 'manager', password: 'password', password_confirmation: 'password')
+AdminUser.create!(name: "Jane Smith", email: 'receptionist1@example.com', role: 'receptionist', password: 'password', password_confirmation: 'password')
+AdminUser.create!(name: "Alice Johnson", email: 'manager2@example.com', role: 'manager', password: 'password', password_confirmation: 'password')
+AdminUser.create!(name: "Bob Brown", email: 'receptionist2@example.com', role: 'receptionist', password: 'password', password_confirmation: 'password')
 
 # Seed TypeChambre
 type_chambres = [
