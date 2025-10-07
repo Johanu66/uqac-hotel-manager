@@ -38,6 +38,8 @@ Voici le cycle de vie DevOps :
 - Operate : surveiller la performance, la disponibilité (outils : Grafana...).
 - Monitor : collecter des métriques, logs, retours utilisateurs.
 
+<img width="1982" height="1020" alt="7602 1513404277" src="https://github.com/user-attachments/assets/95824d36-d828-47f2-98d0-b06ad2de27b8" />
+
 
 # C. Application pratique des étapes DevOps : Système de gestion d'hôtel
 
