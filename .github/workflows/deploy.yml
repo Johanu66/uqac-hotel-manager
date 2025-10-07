@@ -1,0 +1,47 @@
+name: Deploy to Production
+
+on:
+  pull_request:
+  push:
+    branches: [deploy]
+  workflow_dispatch:  # Permet de déclencher manuellement
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Ne déploie qu'après que tous les tests passent
+    needs: [scan_ruby, scan_js, lint, test]
+    if: github.ref == 'refs/heads/deploy'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: johanu66
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Configure SSH for EC2
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_PRIVATE_KEY }}" > ~/.ssh/aws-uqac-hotel-manager-key.pem
+          chmod 600 ~/.ssh/aws-uqac-hotel-manager-key.pem
+          ssh-keyscan -H 15.223.68.69 >> ~/.ssh/known_hosts
+
+      - name: Deploy with Kamal
+        env:
+          KAMAL_REGISTRY_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+        run: |
+          bundle exec kamal deploy
