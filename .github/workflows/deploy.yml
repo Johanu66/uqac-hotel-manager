@@ -129,6 +129,9 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_PRIVATE_KEY }}" > ~/.ssh/aws-uqac-hotel-manager-key.pem
           chmod 600 ~/.ssh/aws-uqac-hotel-manager-key.pem
+          # Remove any existing key for this host to avoid conflicts
+          ssh-keygen -R 15.223.68.69 || true
+          # Add the current key
           ssh-keyscan -H 15.223.68.69 >> ~/.ssh/known_hosts
 
       - name: Deploy with Kamal
