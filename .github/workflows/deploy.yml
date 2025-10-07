@@ -129,15 +129,19 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_PRIVATE_KEY }}" > ~/.ssh/aws-uqac-hotel-manager-key.pem
           chmod 600 ~/.ssh/aws-uqac-hotel-manager-key.pem
-          # Remove any existing key for this host to avoid conflicts
-          ssh-keygen -R 15.223.68.69 || true
-          # Add the current key
-          ssh-keyscan -H 15.223.68.69 >> ~/.ssh/known_hosts
+          # Configure SSH to accept new host keys automatically for this deployment
+          cat >> ~/.ssh/config << EOF
+          Host 15.223.68.69
+            StrictHostKeyChecking no
+            UserKnownHostsFile /dev/null
+            IdentityFile ~/.ssh/aws-uqac-hotel-manager-key.pem
+            User ubuntu
+          EOF
 
       - name: Install Docker on EC2 if needed
         run: |
           # Check if Docker is installed, install if not
-          ssh -i ~/.ssh/aws-uqac-hotel-manager-key.pem ubuntu@15.223.68.69 'which docker || {
+          ssh 15.223.68.69 'which docker || {
             echo "Installing Docker..."
             sudo apt-get update
             sudo apt-get install -y ca-certificates curl
