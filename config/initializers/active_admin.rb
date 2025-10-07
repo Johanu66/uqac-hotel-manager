@@ -40,7 +40,7 @@ ActiveAdmin.setup do |config|
   #   config.default_namespace = false
   #
   # Default:
-  config.default_namespace = :backoffice
+  config.default_namespace = :admin
   #
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
@@ -160,7 +160,7 @@ ActiveAdmin.setup do |config|
   # You can exclude possibly sensitive model attributes from being displayed,
   # added to forms, or exported by default by ActiveAdmin
   #
-  config.filter_attributes = [:encrypted_password, :password, :password_confirmation]
+  config.filter_attributes = [ :encrypted_password, :password, :password_confirmation ]
 
   # == Localize Date/Time Format
   #
@@ -275,5 +275,4 @@ ActiveAdmin.setup do |config|
 
   config.authorization_adapter = ActiveAdmin::CanCanAdapter
   config.cancan_ability_class = "Ability"
-
 end

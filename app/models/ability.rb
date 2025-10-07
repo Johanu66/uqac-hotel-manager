@@ -4,7 +4,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     if user.present? && user.is_a?(AdminUser) && user.manager?
       can :manage, :all
     elsif user.present? && user.is_a?(AdminUser) && user.receptionist?

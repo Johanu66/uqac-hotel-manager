@@ -8,8 +8,18 @@ module ActiveSupport
     parallelize(workers: :number_of_processors)
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-    fixtures :all
+    # Disable this if you want to control fixtures manually
+    # fixtures :all
 
     # Add more helper methods to be used by all tests here...
+
+    # Helper method to clean database between tests
+    def setup
+      DatabaseCleaner.start if defined?(DatabaseCleaner)
+    end
+
+    def teardown
+      DatabaseCleaner.clean if defined?(DatabaseCleaner)
+    end
   end
 end
