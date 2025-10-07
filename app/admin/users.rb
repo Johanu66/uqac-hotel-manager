@@ -1,13 +1,13 @@
 ActiveAdmin.register User do
   # Specify parameters which should be permitted for assignment
-  permit_params :email, :encrypted_password, :name, :role, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :failed_attempts, :unlock_token, :locked_at
+  permit_params :email, :encrypted_password, :name, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :failed_attempts, :unlock_token, :locked_at
 
   menu label: "Hotel Clients"
 
   # or consider:
   #
   # permit_params do
-  #   permitted = [:email, :encrypted_password, :name, :role, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :failed_attempts, :unlock_token, :locked_at]
+  #   permitted = [:email, :encrypted_password, :name, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :failed_attempts, :unlock_token, :locked_at]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -20,22 +20,21 @@ ActiveAdmin.register User do
   filter :email
   # filter :encrypted_password
   filter :name
-  filter :role
   # filter :reset_password_token
-  filter :reset_password_sent_at
-  filter :remember_created_at
+  # filter :reset_password_sent_at
+  # filter :remember_created_at
   filter :sign_in_count
-  filter :current_sign_in_at
+  # filter :current_sign_in_at
   filter :last_sign_in_at
-  filter :current_sign_in_ip
-  filter :last_sign_in_ip
+  # filter :current_sign_in_ip
+  # filter :last_sign_in_ip
   # filter :confirmation_token
-  filter :confirmed_at
-  filter :confirmation_sent_at
-  filter :unconfirmed_email
-  filter :failed_attempts
+  # filter :confirmed_at
+  # filter :confirmation_sent_at
+  # filter :unconfirmed_email
+  # filter :failed_attempts
   # filter :unlock_token
-  filter :locked_at
+  # filter :locked_at
   filter :created_at
   filter :updated_at
 
@@ -43,25 +42,8 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
-    column :email
-    column :encrypted_password
     column :name
-    column :role
-    column :reset_password_token
-    column :reset_password_sent_at
-    column :remember_created_at
-    column :sign_in_count
-    column :current_sign_in_at
-    column :last_sign_in_at
-    column :current_sign_in_ip
-    column :last_sign_in_ip
-    column :confirmation_token
-    column :confirmed_at
-    column :confirmation_sent_at
-    column :unconfirmed_email
-    column :failed_attempts
-    column :unlock_token
-    column :locked_at
+    column :email
     column :created_at
     column :updated_at
     actions
@@ -74,7 +56,6 @@ ActiveAdmin.register User do
       row :email
       row :encrypted_password
       row :name
-      row :role
       row :reset_password_token
       row :reset_password_sent_at
       row :remember_created_at
@@ -99,25 +80,10 @@ ActiveAdmin.register User do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
-      f.input :email
-      f.input :encrypted_password
       f.input :name
-      f.input :role
-      f.input :reset_password_token
-      f.input :reset_password_sent_at
-      f.input :remember_created_at
-      f.input :sign_in_count
-      f.input :current_sign_in_at
-      f.input :last_sign_in_at
-      f.input :current_sign_in_ip
-      f.input :last_sign_in_ip
-      f.input :confirmation_token
-      f.input :confirmed_at
-      f.input :confirmation_sent_at
-      f.input :unconfirmed_email
-      f.input :failed_attempts
-      f.input :unlock_token
-      f.input :locked_at
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
     end
     f.actions
   end

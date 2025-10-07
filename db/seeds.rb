@@ -7,7 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-AdminUser.create!(name: "John Doe", email: 'manager@example.com', role: 'manager', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(name: "John Doe", email: 'manager1@example.com', role: 'manager', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(name: "Jane Smith", email: 'receptionist1@example.com', role: 'receptionist', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(name: "Alice Johnson", email: 'manager2@example.com', role: 'manager', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(name: "Bob Brown", email: 'receptionist2@example.com', role: 'receptionist', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 # Seed TypeChambre
 type_chambres = [
@@ -28,7 +31,13 @@ end
 chambres = [
     { numero: "101", type_chambre: TypeChambre.find_by(nom: "Simple"), statut: 0, description: "Vue sur le lac" },
     { numero: "102", type_chambre: TypeChambre.find_by(nom: "Double"), statut: 0, description: "Proche de l'ascenseur" },
-    { numero: "201", type_chambre: TypeChambre.find_by(nom: "Suite"), statut: 0, description: "Grande suite avec balcon" }
+    { numero: "201", type_chambre: TypeChambre.find_by(nom: "Suite"), statut: 0, description: "Grande suite avec balcon" },
+    { numero: "202", type_chambre: TypeChambre.find_by(nom: "Double"), statut: 2, description: "En rénovation" },
+    { numero: "103", type_chambre: TypeChambre.find_by(nom: "Simple"), statut: 1, description: "Occupée par un client" },
+    { numero: "203", type_chambre: TypeChambre.find_by(nom: "Suite"), statut: 0, description: "Suite présidentielle" },
+    { numero: "104", type_chambre: TypeChambre.find_by(nom: "Simple"), statut: 0, description: "Chambre calme" },
+    { numero: "105", type_chambre: TypeChambre.find_by(nom: "Double"), statut: 0, description: "Chambre avec vue sur la ville" }
+
 ]
 chambres.each do |attrs|
     Chambre.find_or_create_by!(numero: attrs[:numero]) do |chambre|
@@ -41,7 +50,10 @@ end
 # Seed Users
 users = [
     { name: "Jean Dupont", email: "jean.dupont@example.com", password: "password" },
-    { name: "Marie Lefebvre", email: "marie.lefebvre@example.com", password: "password" }
+    { name: "Marie Lefebvre", email: "marie.lefebvre@example.com", password: "password" },
+    { name: "Pierre Martin", email: "pierre.martin@example.com", password: "password" },
+    { name: "Sophie Bernard", email: "sophie.bernard@example.com", password: "password" },
+    { name: "Lucie Dubois", email: "lucie.dubois@example.com", password: "password" }
 ]
 users.each do |attrs|
     User.find_or_create_by!(email: attrs[:email]) do |user|
@@ -71,6 +83,16 @@ reservations = [
         date_depart: Date.today + 4,
         statut: 0,
         prix_total: 750,
+        date_creation: DateTime.now
+    },
+    {
+        user: User.find_by(email: "lucie.dubois@example.com"),
+        type_chambre: TypeChambre.find_by(nom: "Double"),
+        chambre: Chambre.find_by(numero: "105"),
+        date_arrivee: Date.today + 2,
+        date_depart: Date.today + 5,
+        statut: 0,
+        prix_total: 600,
         date_creation: DateTime.now
     }
 ]

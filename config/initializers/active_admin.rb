@@ -272,4 +272,8 @@ ActiveAdmin.setup do |config|
   # You can inherit it with own class and inject it for all resources
   #
   # config.order_clause = MyOrderClause
+
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
+  config.cancan_ability_class = "Ability"
+
 end

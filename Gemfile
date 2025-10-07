@@ -67,3 +67,5 @@ end
 
 gem "activeadmin"
 gem "activeadmin_assets"
+
+gem "cancancan"

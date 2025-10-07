@@ -2,7 +2,7 @@ class AdminUser < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, 
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :trackable
 
   enum :role, { receptionist: 0, manager: 1 }
   validates :role, presence: true, inclusion: { in: roles.keys }
@@ -12,7 +12,7 @@ class AdminUser < ApplicationRecord
   end
 
   def to_s
-    "#{name} (#{email})"
+    "#{name}"
   end
 
   def display_name

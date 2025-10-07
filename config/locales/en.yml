@@ -44,7 +44,6 @@ en:
     attributes:
       user:
         name: "Name"
-        role: "Role"
         email: "Email"
         encrypted_password: "Encrypted Password"
         reset_password_token: "Reset Password Token"
