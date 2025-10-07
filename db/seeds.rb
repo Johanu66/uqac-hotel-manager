@@ -10,7 +10,7 @@
 # Seed AdminUsers - Utilisation de find_or_create_by pour éviter les doublons lors des redéploiements
 admin_users = [
   { name: "John Doe", email: 'manager@hotel.com', role: 'manager' },
-  { name: "Jane Smith", email: 'receptionist@hotel.com', role: 'receptionist' },
+  { name: "Jane Smith", email: 'receptionist@hotel.com', role: 'receptionist' }
 ]
 
 admin_users.each do |attrs|
