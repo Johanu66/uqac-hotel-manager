@@ -171,7 +171,7 @@ registry:
 - **Qualité assurée** : 27 tests automatisés, analyse de sécurité
 - **Infrastructure reproductible** : Configuration as Code avec Kamal
 - **Temps de déploiement** : Moins de 10 minutes de commit à production
-- **Accès public** : Application déployée sur http://ec2-15-223-68-69.ca-central-1.compute.amazonaws.com 
+- **Accès public** : Application déployée sur http://uqac-hotel-manager.randever.com/admin
 
 
 # D. Avantages et inconvénients
