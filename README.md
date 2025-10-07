@@ -65,6 +65,18 @@ Dans le cadre de ce projet, nous avons développé une application de gestion d'
 - **Base de données** : Migrations pour créer les tables et relations
 - **Code source** : Développement en Ruby on Rails 8.0.3 avec les bonnes pratiques
 
+**Résultats** :
+  <img width="1687" height="960" alt="Screenshot from 2025-10-07 14-42-46" src="https://github.com/user-attachments/assets/d4de585d-820e-4933-a2fb-b092e9a5f057" />
+  <img width="1958" height="992" alt="Screenshot from 2025-10-07 14-43-22" src="https://github.com/user-attachments/assets/c64683db-0c80-4bc2-9fe9-ce3388efd2af" />
+  <img width="1978" height="985" alt="Screenshot from 2025-10-07 14-43-54" src="https://github.com/user-attachments/assets/213075d6-a561-4d97-af01-834950801ffc" />
+  <img width="1978" height="985" alt="Screenshot from 2025-10-07 14-44-09" src="https://github.com/user-attachments/assets/8cb45cbc-ee7c-493a-8c2b-115382be528f" />
+  <img width="1978" height="985" alt="Screenshot from 2025-10-07 14-44-22" src="https://github.com/user-attachments/assets/4d029437-9504-4eac-a81b-f00aa269af5f" />
+  <img width="1978" height="985" alt="Screenshot from 2025-10-07 14-44-50" src="https://github.com/user-attachments/assets/d1f4e6ee-21a4-4e6c-aec4-0fc20a663c71" />
+
+
+
+
+
 ## 3. Build - Compilation et construction
 
 **Objectif** : Compiler et empaqueter l'application pour le déploiement.
@@ -86,6 +98,9 @@ Dans le cadre de ce projet, nous avons développé une application de gestion d'
 - **Tests système** (6 tests) : Tests end-to-end avec Capybara pour l'interface utilisateur
 - **Total** : 27 tests automatisés couvrant toutes les fonctionnalités
 - **CI/CD** : Exécution automatique des tests dans GitHub Actions avec base MySQL
+
+<img width="1114" height="717" alt="Screenshot from 2025-10-07 02-56-13" src="https://github.com/user-attachments/assets/685ad288-b2b8-4e00-9415-79ca746a2803" />
+
 
 ## 5. Release - Préparation à la production
 
@@ -121,6 +136,9 @@ registry:
   username: johanu66
   password: [KAMAL_REGISTRY_PASSWORD]
 ```
+<img width="1114" height="717" alt="Screenshot from 2025-10-07 11-47-36" src="https://github.com/user-attachments/assets/80c8aadf-b062-4cda-960b-73c2987613de" />
+
+
 
 ## 7. Operate - Exploitation et surveillance
 
