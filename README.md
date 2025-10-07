@@ -115,6 +115,20 @@ Dans le cadre de ce projet, nous avons développé une application de gestion d'
 - **Validation** : Tous les tests doivent passer avant le déploiement
 - **Versioning** : Tags Git automatiques pour chaque release
 
+### **ARCHITECTURE DEVOPS IMPLÉMENTÉE**
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   DÉVELOPPEUR   │───▶│  GITHUB ACTIONS  │───▶│   AWS EC2 PROD  │
+│                 │    │                  │    │                 │
+│ ▪ Code Rails 8  │    │ ▪ Tests (27)     │    │ ▪ Docker        │
+│ ▪ Tests ActiveAdmin  │ ▪ Sécurité       │    │ ▪ Kamal         │
+│ ▪ Git push      │    │ ▪ Linting        │    │ ▪ MySQL        │
+│                 │    │ ▪ Déploiement    │    │ ▪ ActiveAdmin   │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+```
+
+
 ## 6. Deploy - Déploiement automatisé
 
 **Objectif** : Déployer automatiquement l'application sur l'infrastructure cloud.
@@ -124,7 +138,7 @@ Dans le cadre de ce projet, nous avons développé une application de gestion d'
 - **Kamal** : Outil de déploiement moderne remplaçant Capistrano
 - **Docker** : Déploiement containerisé avec orchestration automatique
 - **Proxy** : Kamal-proxy pour la gestion du trafic HTTP
-- **Base de données** : SQLite en production pour simplifier le déploiement
+- **Base de données** : Mysal en production pour simplifier le déploiement
 - **Déploiement automatique** : Trigger sur push vers branche `deploy`
 
 **Configuration Infrastructure as Code** :
@@ -151,7 +165,7 @@ registry:
 - **Logs centralisés** : Collecte des logs applicatifs et proxy
 - **Health checks** : Vérification automatique de l'état de l'application
 - **Restart policies** : Redémarrage automatique en cas de panne
-- **Backup automatique** : Volumes persistants pour les données SQLite
+- **Backup automatique** : Volumes persistants pour les données MySQL
 
 ## 8. Monitor - Surveillance et métriques
 
@@ -193,6 +207,15 @@ registry:
 - **Temps de déploiement** : Moins de 10 minutes de commit à production
 - **Accès public** : Application déployée sur http://uqac-hotel-manager.randever.com/admin
   Si votre navigateur redirige automatiquement vers le HTTPS et que cela ne fonctionne pas, essayez d’utiliser le HTTP. (C’est une contrainte liée à la version gratuite des ressources utilisées pour le deploiement)
+
+### 🌐 **ACCÈS APPLICATION**
+- **URL Production** : http://uqac-hotel-manager.randever.com/admin
+- **Identifiants Manager** : (Acces total)
+  - Email: `manager@hotel.com`
+  - Mot de passe: `password`
+- **Identifiants Receptionist** : (Acces plus restraints)
+  - Email: `receptionist@hotel.com`
+  - Mot de passe: `password`
 
 
 # D. Avantages et inconvénients
