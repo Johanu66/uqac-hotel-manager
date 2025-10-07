@@ -15,4 +15,20 @@ class Reservation < ApplicationRecord
       errors.add(:date_depart, "doit être après la date d'arrivée")
     end
   end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id user_id type_chambre_id chambre_id statut date_arrivee date_depart prix_total created_at updated_at]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[user type_chambre chambre]
+  end
+
+  def to_s
+    "Reservation ##{id} for #{user.name} from #{date_arrivee} to #{date_depart}"
+  end
+
+  def display_name
+    to_s
+  end
 end
