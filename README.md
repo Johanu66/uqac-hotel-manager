@@ -190,6 +190,7 @@ registry:
 - **Infrastructure reproductible** : Configuration as Code avec Kamal
 - **Temps de déploiement** : Moins de 10 minutes de commit à production
 - **Accès public** : Application déployée sur http://uqac-hotel-manager.randever.com/admin
+  Si votre navigateur redirige automatiquement vers le HTTPS et que cela ne fonctionne pas, essayez d’utiliser le HTTP. (C’est une contrainte liée à la version gratuite des ressources utilisées pour le deploiement)
 
 
 # D. Avantages et inconvénients
