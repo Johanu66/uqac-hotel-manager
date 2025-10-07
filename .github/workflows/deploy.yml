@@ -155,5 +155,6 @@ jobs:
         env:
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.DOCKER_HUB_TOKEN }}
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
         run: |
           bundle exec kamal deploy
