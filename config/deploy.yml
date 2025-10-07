@@ -8,13 +8,6 @@ image: johanu66/hotel_manager
 servers:
   web:
     - 15.223.68.69  # Votre IP publique EC2
-    
-# Health check configuration for slower MySQL connections
-healthcheck:
-  path: /up
-  port: 80
-  max_attempts: 10
-  timeout: 60
 
 # Enable SSL auto certification via Let's Encrypt and allow for multiple apps on a single web server.
 # Remove this section when using multiple web servers and ensure you terminate SSL at your load balancer.
@@ -60,6 +53,9 @@ env:
 
     # Log everything from Rails
     # RAILS_LOG_LEVEL: debug
+
+# Configure readiness delay for MySQL connection time
+readiness_delay: 60
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal logs -r job" will tail logs from the first server in the job section.
