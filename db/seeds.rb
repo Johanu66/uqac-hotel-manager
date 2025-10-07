@@ -7,10 +7,20 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-AdminUser.create!(name: "John Doe", email: 'manager1@example.com', role: 'manager', password: 'password', password_confirmation: 'password')
-AdminUser.create!(name: "Jane Smith", email: 'receptionist1@example.com', role: 'receptionist', password: 'password', password_confirmation: 'password')
-AdminUser.create!(name: "Alice Johnson", email: 'manager2@example.com', role: 'manager', password: 'password', password_confirmation: 'password')
-AdminUser.create!(name: "Bob Brown", email: 'receptionist2@example.com', role: 'receptionist', password: 'password', password_confirmation: 'password')
+# Seed AdminUsers - Utilisation de find_or_create_by pour éviter les doublons lors des redéploiements
+admin_users = [
+  { name: "John Doe", email: 'manager@hotel.com', role: 'manager' },
+  { name: "Jane Smith", email: 'receptionist@hotel.com', role: 'receptionist' },
+]
+
+admin_users.each do |attrs|
+  AdminUser.find_or_create_by!(email: attrs[:email]) do |user|
+    user.name = attrs[:name]
+    user.role = attrs[:role]
+    user.password = 'password'
+    user.password_confirmation = 'password'
+  end
+end
 
 # Seed TypeChambre
 type_chambres = [

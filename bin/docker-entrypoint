@@ -8,7 +8,13 @@ fi
 
 # If running the rails server then create or migrate existing database
 if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+  echo "🔄 Préparation de la base de données..."
   ./bin/rails db:prepare
+  
+  echo "🌱 Chargement des données initiales (seeds)..."
+  ./bin/rails db:seed
+  
+  echo "✅ Initialisation terminée !"
 fi
 
 exec "${@}"
