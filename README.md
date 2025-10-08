@@ -206,3 +206,5 @@ https://www.qrpinternational.fr/blog/gestion-des-services-informatiques/integrat
 https://azure.microsoft.com/fr-ca/resources/cloud-computing-dictionary/what-is-devops
 https://www.atlassian.com/fr/devops/what-is-devops/how-to-start-devops
 https://www.alter-solutions.fr/blog/etapes-devops
+
+
